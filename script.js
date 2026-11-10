@@ -1,4 +1,3 @@
-// Mock Database of Students for the dropdown
 const studentDatabase = [
     { reg: "12602481", name: "Harsh Singh", section: "K26" },
     { reg: "12602482", name: "Rahul Kumar", section: "K26" },
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const autocompleteList = document.getElementById('autocomplete-list');
     
     if(form) {
-        // --- AUTOCOMPLETE LOGIC ---
         studentRegInput.addEventListener('input', function() {
             const val = this.value;
             autocompleteList.innerHTML = '';
@@ -37,20 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     studentRegInput.value = student.reg;
                     studentNameInput.value = student.name;
                     studentSectionInput.value = student.section;
-                    autocompleteList.innerHTML = ''; // Close list
+                    autocompleteList.innerHTML = ''; 
                 });
                 autocompleteList.appendChild(item);
             });
         });
 
-        // Close dropdown if clicked outside
         document.addEventListener('click', function (e) {
             if (e.target !== studentRegInput) {
                 autocompleteList.innerHTML = '';
             }
         });
 
-        // --- ANONYMOUS TOGGLE ---
         isAnonymousCb.addEventListener('change', (e) => {
             if(e.target.checked) {
                 studentRegInput.value = 'Anonymous';
@@ -66,18 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // --- SUBMISSION LOGIC ---
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Validate Password
             if(studentPasswordInput.value !== 'abc123') {
                 document.getElementById('passwordError').style.display = 'block';
                 return;
             }
             document.getElementById('passwordError').style.display = 'none';
 
-            // Validate Name Field (if not anonymous)
             if(!isAnonymousCb.checked && !studentNameInput.value) {
                 document.getElementById('idError').style.display = 'block';
                 return; 
@@ -107,12 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- ADMIN DASHBOARD LOGIC ---
     const tableBody = document.getElementById('tableBody');
     if(tableBody) {
         const feedbacks = JSON.parse(localStorage.getItem('facultyFeedbacks')) || [];
         
-        // Reversing the array so the latest submissions render first
         [...feedbacks].reverse().forEach(fb => {
             const row = document.createElement('tr');
             

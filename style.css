@@ -1,11 +1,9 @@
-/* Core Variables & Typography */
 :root {
     --primary: #f37021;
     --primary-hover: #d65f1a;
     --text-dark: #333;
     --white: #ffffff;
     --border: #ccc;
-    /* Added a slight transparency to the white backgrounds so the blue grunge shows nicely */
     --container-bg: rgba(255, 255, 255, 0.95); 
 }
 
@@ -13,15 +11,12 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-dark);
     margin: 0;
-    
-    /* Background Image Added Here */
     background-image: url('dark-blue-grunge-background.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
-/* Header & Navigation */
 .app-header {
     display: flex;
     justify-content: flex-end;
@@ -45,7 +40,6 @@ body {
     color: var(--primary);
 }
 
-/* --- STUDENT PORTAL STYLES --- */
 .form-container {
     max-width: 500px;
     margin: 40px auto;
@@ -76,7 +70,7 @@ body {
     gap: 10px;
 }
 
-input[type="text"], input[type="number"], select, textarea {
+input[type="text"], input[type="password"], input[type="number"], select, textarea {
     padding: 10px;
     border: 1px solid var(--border);
     border-radius: 4px;
@@ -86,21 +80,21 @@ input[type="text"], input[type="number"], select, textarea {
     background-color: var(--white);
 }
 
-/* Hides up/down arrows on number input */
 input[type="number"]::-webkit-inner-spin-button, 
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 input[type="number"] {
     -moz-appearance: textfield;
 }
 
-/* Autocomplete Dropdown Styling */
 .autocomplete {
     position: relative;
     display: flex;
 }
+
 .autocomplete-items {
     position: absolute;
     border: 1px solid #d4d4d4;
@@ -116,12 +110,14 @@ input[type="number"] {
     border-radius: 0 0 4px 4px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
+
 .autocomplete-items div {
     padding: 10px;
     cursor: pointer;
     background-color: #fff;
     border-bottom: 1px solid #d4d4d4;
 }
+
 .autocomplete-items div:hover {
     background-color: #e9ecef;
 }
@@ -148,7 +144,6 @@ input[type="number"] {
     margin-top: 5px;
 }
 
-/* --- ADMIN DASHBOARD STYLES --- */
 .admin-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -182,7 +177,6 @@ input[type="number"] {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -205,7 +199,6 @@ tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
