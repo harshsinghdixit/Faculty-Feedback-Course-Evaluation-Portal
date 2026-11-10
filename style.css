@@ -1,0 +1,216 @@
+/* Core Variables & Typography */
+:root {
+    --primary: #f37021;
+    --primary-hover: #d65f1a;
+    --text-dark: #333;
+    --white: #ffffff;
+    --border: #ccc;
+    /* Added a slight transparency to the white backgrounds so the blue grunge shows nicely */
+    --container-bg: rgba(255, 255, 255, 0.95); 
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    margin: 0;
+    
+    /* Background Image Added Here */
+    background-image: url('dark-blue-grunge-background.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Header & Navigation */
+.app-header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--primary);
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.nav-btn {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid var(--white);
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: var(--white);
+    color: var(--primary);
+}
+
+/* --- STUDENT PORTAL STYLES --- */
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: var(--container-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="text"], input[type="number"], select, textarea {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--white);
+}
+
+/* Hides up/down arrows on number input */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Autocomplete Dropdown Styling */
+.autocomplete {
+    position: relative;
+    display: flex;
+}
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+    background-color: #e9ecef;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.error-msg {
+    color: red;
+    display: none;
+    margin-top: 5px;
+}
+
+/* --- ADMIN DASHBOARD STYLES --- */
+.admin-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stats-card, .table-container {
+    background: var(--container-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.summary-flex {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.stat-box {
+    background: var(--white);
+    padding: 15px;
+    border-left: 5px solid var(--primary);
+    border-radius: 4px;
+    flex: 1;
+    min-width: 200px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: var(--white);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+th { 
+    background-color: var(--primary); 
+    color: var(--white); 
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+}

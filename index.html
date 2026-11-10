@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Feedback Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <nav><a href="admin.html" class="nav-btn">Admin Dashboard</a></nav>
+    </header>
+
+    <main class="fade-in">
+        <section class="form-container">
+            <form id="feedbackForm">
+                
+                <div class="form-group autocomplete">
+                    <label for="studentReg">Student Registration No:</label>
+                    <input type="text" id="studentReg" placeholder="e.g., 12602481" required autocomplete="off">
+                    <div id="autocomplete-list" class="autocomplete-items"></div>
+                    <small class="error-msg" id="idError">Invalid Registration Number.</small>
+                </div>
+
+                <!-- NEW PASSWORD FIELD -->
+                <div class="form-group">
+                    <label for="studentPassword">Password:</label>
+                    <input type="password" id="studentPassword" placeholder="Enter your password" required>
+                    <small class="error-msg" id="passwordError">Incorrect Password.</small>
+                </div>
+
+                <div class="form-row" id="studentDetailsRow">
+                    <div class="form-group">
+                        <label for="studentName">Name:</label>
+                        <input type="text" id="studentName" readonly style="background-color: #e9ecef;">
+                    </div>
+                    <div class="form-group">
+                        <label for="studentSection">Section:</label>
+                        <input type="text" id="studentSection" readonly style="background-color: #e9ecef;">
+                    </div>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="isAnonymous">
+                    <label for="isAnonymous">Submit Anonymously (Hide ID and Name)</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="faculty">Select Course & Faculty:</label>
+                    <select id="faculty" required>
+                        <option value="">-- Select --</option>
+                        <option value="CSE326 - Manjit Kaur">CSE326 - Manjit Kaur</option>
+                        <option value="MTH165 - Rahul Sharma">MTH165 - Rahul Sharma</option>
+                        <option value="PHY175 - Priya Singh">PHY175 - Priya Singh</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Rating (1 to 5):</label>
+                    <input type="number" id="rating" min="1" max="5" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Constructive Feedback:</label>
+                    <textarea id="comments" rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Feedback</button>
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
